@@ -27,7 +27,15 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const gasLane = networkConfig[chainId]["gasLane"]
     const callbackGasLimit = networkConfig[chainId]["callbackGasLimit"]
     const interval = networkConfig[chainId]["interval"]
-    const args = [vrfCoordinatorV2Address, entranceFee, gasLane, subscriptionId, callbackGasLimit]
+
+    const args = [
+        vrfCoordinatorV2Address,
+        entranceFee,
+        gasLane,
+        subscriptionId,
+        callbackGasLimit,
+        interval,
+    ]
     const lottery = await deploy("Lottery", {
         from: deployer,
         args: args,
