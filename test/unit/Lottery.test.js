@@ -1,5 +1,5 @@
 const { assert, expect } = require("chai")
-const { network, getNamedAccounts, deployments, ethers } = require("hardhat")
+const { network, deployments, ethers } = require("hardhat")
 const { developmentChains, networkConfig } = require("../../helper-hardhat-config")
 
 !developmentChains.includes(network.name)
@@ -96,7 +96,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
               })
               it("Reverts when checkUpkeep is false", async () => {
                   await expect(lottery.performUpkeep([])).to.be.revertedWith(
-                      "Lottery__UpKeepNotNeeded "
+                      "Lottery__UpKeepNotNeeded"
                   )
               })
               it("Updates the lottery state, emits and event, and calls the vrf coordinator", async () => {
@@ -137,14 +137,8 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
 
                   await new Promise(async (resolve, reject) => {
                       lottery.once("WinnerPicked", async () => {
-                          console.log("WinnerPicked event fired!")
                           try {
                               const recentWinner = await lottery.getRecentWinner()
-                              console.log(recentWinner)
-                              console.log(accounts[2].address)
-                              console.log(accounts[0].address)
-                              console.log(accounts[1].address)
-                              console.log(accounts[3].address)
 
                               const lotteryState = await lottery.getLotteryState()
                               const endingTimestamp = await lottery.getLatestTimestamp()
