@@ -49,6 +49,6 @@ module.exports = {
         token: "ETH",
     },
     mocha: {
-        timeout: 200000,
+        timeout: 20000,
     },
 }
