@@ -49,6 +49,12 @@ module.exports = {
         token: "ETH",
     },
     mocha: {
-        timeout: 300000,
+        timeout: 500000,
+    },
+    etherscan: {
+        apiKey: {
+            goerli: ETHERSCAN_API_KEY,
+            // polygon: POLYGONSCAN_API_KEY,
+        },
     },
 }
