@@ -113,15 +113,6 @@ contract Lottery is VRFConsumerBaseV2, AutomationCompatible {
         emit WinnerPicked(recentWinner);
     }
 
-    /**
-     * @dev This is the function that the Chainlink Keeper nodes call
-     * they look for `upkeepNeeded` to return True.
-     * the following should be true for this to return true:
-     * 1. The time interval has passed between raffle runs.
-     * 2. The lottery is open.
-     * 3. The contract has ETH.
-     * 4. Implicity, your subscription is funded with LINK.
-     */
     function checkUpkeep(
         bytes memory /* checkData */
     )
